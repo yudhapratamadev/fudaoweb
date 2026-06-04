@@ -7,14 +7,37 @@ import { WHATSAPP_LINK } from "@/constants";
 
 export default function CollectionDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const { data: c, isLoading } = useQuery({
+  const { data: c, isLoading, isError } = useQuery({
     queryKey: ["collection", slug],
     queryFn: () => fetchCollectionBySlug(slug!),
     enabled: !!slug,
   });
 
   if (isLoading) {
-    return <div className="px-6 py-32 text-center text-muted-rose">Memuat...</div>;
+    return (
+      <div className="px-[8vw] py-20">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+          <div className="aspect-square animate-pulse rounded-[2.5rem] bg-blush/30" />
+          <div className="flex flex-col justify-center gap-4">
+            <div className="h-4 w-24 animate-pulse rounded-full bg-blush/40" />
+            <div className="h-12 w-3/4 animate-pulse rounded-xl bg-blush/30" />
+            <div className="h-8 w-32 animate-pulse rounded-lg bg-blush/20" />
+            <div className="h-24 w-full animate-pulse rounded-xl bg-blush/20" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <div className="px-6 py-32 text-center">
+        <h1 className="font-serif text-3xl text-bark">Gagal memuat koleksi</h1>
+        <p className="mt-2 text-muted-rose">Coba refresh halaman.</p>
+        <Link to="/collections" className="mt-6 inline-flex items-center gap-2 text-rose hover:underline">
+          <ArrowLeft size={16} /> Kembali ke Koleksi
+        </Link>
+      </div>
+    );
   }
   if (!c) {
     return (

@@ -5,7 +5,7 @@ import { fetchCollections } from "@/lib/queries";
 import CollectionCard from "@/components/CollectionCard";
 
 export default function Collections() {
-  const { data: collections = [], isLoading } = useQuery({
+  const { data: collections = [], isLoading, isError } = useQuery({
     queryKey: ["collections"],
     queryFn: fetchCollections,
   });
@@ -67,7 +67,13 @@ export default function Collections() {
       )}
 
       {isLoading ? (
-        <p className="mt-16 text-center text-muted-rose">Memuat...</p>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[1,2,3,4,5,6].map(i => (
+            <div key={i} className="aspect-square animate-pulse rounded-3xl bg-blush/30" />
+          ))}
+        </div>
+      ) : isError ? (
+        <p className="mt-16 text-center text-red-400">Gagal memuat koleksi. Coba refresh halaman.</p>
       ) : filtered.length === 0 ? (
         <p className="mt-16 text-center text-muted-rose">Belum ada koleksi.</p>
       ) : (

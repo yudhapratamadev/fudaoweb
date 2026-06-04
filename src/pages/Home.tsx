@@ -8,7 +8,7 @@ import CollectionCard from "@/components/CollectionCard";
 import ReviewCard from "@/components/ReviewCard";
 
 export default function Home() {
-  const { data: collections = [] } = useQuery({
+  const { data: collections = [], isLoading: collectionsLoading } = useQuery({
     queryKey: ["collections"],
     queryFn: fetchCollections,
   });
@@ -177,7 +177,13 @@ export default function Home() {
           Pilihan <em className="italic text-rose">Scrunchie</em> Terfavorit
         </h2>
 
-        {featured.length === 0 ? (
+        {collectionsLoading ? (
+          <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[1,2,3].map(i => (
+              <div key={i} className="aspect-square animate-pulse rounded-3xl bg-blush/30" />
+            ))}
+          </div>
+        ) : featured.length === 0 ? (
           <p className="mt-12 text-muted-rose">Belum ada koleksi.</p>
         ) : (
           <div className="mx-auto mt-12 grid max-w-6xl gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
