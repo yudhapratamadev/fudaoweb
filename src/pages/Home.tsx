@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative grid min-h-screen items-center gap-0 overflow-hidden pt-20 lg:grid-cols-2">
+      <section className="relative overflow-hidden pt-20">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -32,91 +32,109 @@ export default function Home() {
           }}
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="relative z-10 px-[8vw] pb-12 lg:pb-0"
-        >
-          <span className="inline-block rounded-full border border-rose/30 bg-[#F5E6EA] px-4 py-1.5 text-xs font-medium uppercase tracking-[0.12em] text-rose">
-            ✦ Aksesori Ikat Rambut Premium
-          </span>
-          <h1 className="mt-6 font-serif text-5xl font-light leading-[1.08] text-bark lg:text-[5rem]">
-            Sentuhan <em className="italic text-rose">Cantik</em>
-            <br />
-            di Setiap
-            <br />
-            Gaya Rambutmu
-          </h1>
-          <p className="mt-6 max-w-md text-base leading-[1.75] text-muted-rose">
-            Scrunchie handcrafted dengan bahan satin silk pilihan — lembut, kuat, dan
-            penuh gaya. Tersedia untuk pembelian satuan, kado, hingga kebutuhan
-            pernikahan & event.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-rose px-8 py-3.5 text-sm font-medium text-white shadow-[0_8px_24px_rgba(201,125,140,0.35)] transition hover:-translate-y-0.5 hover:bg-warm hover:shadow-[0_14px_32px_rgba(201,125,140,0.45)]"
-            >
-              <MessageCircle size={18} />
-              Pesan Sekarang
-            </a>
-            <a
-              href={BRAND.shopee}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#EE4D2D] px-8 py-3.5 text-sm font-medium text-white shadow-[0_8px_24px_rgba(238,77,45,0.35)] transition hover:-translate-y-0.5 hover:bg-[#D9401E] hover:shadow-[0_14px_32px_rgba(238,77,45,0.45)]"
-            >
-              <ShoppingBag size={18} />
-              Toko Shopee
-            </a>
-            <Link
-              to="/collections"
-              className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-blush bg-transparent px-8 py-3.5 text-sm font-medium text-rose transition hover:-translate-y-0.5 hover:border-rose hover:bg-[#F5E6EA]"
-            >
-              Lihat Koleksi
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.1, delay: 0.2 }}
-          className="relative z-10 flex items-center justify-center px-[6vw] pb-12 pt-6 lg:pb-12 lg:pt-0"
-        >
-          <div
-            className="animate-float-y pointer-events-none absolute right-[8%] top-[15%] h-[90px] w-[90px] rounded-full opacity-60"
-            style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))" }}
-          />
-          <div
-            className="animate-float-y pointer-events-none absolute bottom-[25%] right-[3%] h-[50px] w-[50px] rounded-full opacity-60"
-            style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))", animationDelay: "2s" }}
-          />
-          <div
-            className="animate-float-y pointer-events-none absolute left-[2%] top-[35%] h-[30px] w-[30px] rounded-full opacity-60"
-            style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))", animationDelay: "1s" }}
-          />
-          <div
-            className="animate-morph relative flex aspect-[4/5] w-[clamp(260px,38vw,520px)] items-center justify-center text-[clamp(6rem,12vw,14rem)] shadow-[0_40px_80px_rgba(201,125,140,0.25),0_4px_16px_rgba(74,46,48,0.08)]"
-            style={{ background: "linear-gradient(135deg, #F2C4CE 0%, #EEC5CC 40%, #E8A0B0 100%)" }}
+        <div className="relative z-10 grid items-center gap-0 lg:grid-cols-2 lg:min-h-screen">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            className="px-[8vw] pb-8 pt-10 lg:pb-24 lg:pt-0"
           >
-            <span className="relative z-10">🎀</span>
-            <div
-              className="pointer-events-none absolute"
-              style={{ inset: "-20%", background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 60%)" }}
-            />
-          </div>
-        </motion.div>
+            <span className="inline-block rounded-full border border-rose/30 bg-[#F5E6EA] px-4 py-1.5 text-xs font-medium uppercase tracking-[0.12em] text-rose">
+              ✦ Aksesori Ikat Rambut Premium
+            </span>
+            <h1 className="mt-6 font-serif text-4xl font-light leading-[1.08] text-bark sm:text-5xl lg:text-[5rem]">
+              Sentuhan <em className="italic text-rose">Cantik</em>
+              <br />
+              di Setiap
+              <br />
+              Gaya Rambutmu
+            </h1>
+            <p className="mt-6 max-w-md text-base leading-[1.75] text-muted-rose">
+              Scrunchie handcrafted dengan bahan satin silk pilihan — lembut, kuat, dan
+              penuh gaya. Tersedia untuk pembelian satuan, kado, hingga kebutuhan
+              pernikahan & event.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-rose px-7 py-3 text-sm font-medium text-white shadow-[0_8px_24px_rgba(201,125,140,0.35)] transition hover:-translate-y-0.5 hover:bg-warm hover:shadow-[0_14px_32px_rgba(201,125,140,0.45)]"
+              >
+                <MessageCircle size={17} />
+                Pesan Sekarang
+              </a>
+              <a
+                href={BRAND.shopee}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#EE4D2D] px-7 py-3 text-sm font-medium text-white shadow-[0_8px_24px_rgba(238,77,45,0.35)] transition hover:-translate-y-0.5 hover:bg-[#D9401E] hover:shadow-[0_14px_32px_rgba(238,77,45,0.45)]"
+              >
+                <ShoppingBag size={17} />
+                Toko Shopee
+              </a>
+              <Link
+                to="/collections"
+                className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-blush bg-transparent px-7 py-3 text-sm font-medium text-rose transition hover:-translate-y-0.5 hover:border-rose hover:bg-[#F5E6EA]"
+              >
+                Lihat Koleksi
+                <ArrowRight size={16} />
+              </Link>
+            </div>
 
+            {/* Stats — flow normal di mobile, abs di desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.4 }}
+              className="mt-10 flex gap-8 whitespace-nowrap lg:hidden"
+            >
+              {STATS.map((s) => (
+                <div key={s.label} className="flex flex-col gap-0.5">
+                  <span className="font-serif text-2xl font-semibold text-rose">{s.num}</span>
+                  <span className="text-[11px] uppercase tracking-[0.06em] text-muted-rose">{s.label}</span>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.1, delay: 0.2 }}
+            className="relative z-10 flex items-center justify-center px-[6vw] pb-16 pt-4 lg:pb-12 lg:pt-0"
+          >
+            <div
+              className="animate-float-y pointer-events-none absolute right-[8%] top-[15%] h-[90px] w-[90px] rounded-full opacity-60"
+              style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))" }}
+            />
+            <div
+              className="animate-float-y pointer-events-none absolute bottom-[25%] right-[3%] h-[50px] w-[50px] rounded-full opacity-60"
+              style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))", animationDelay: "2s" }}
+            />
+            <div
+              className="animate-float-y pointer-events-none absolute left-[2%] top-[35%] h-[30px] w-[30px] rounded-full opacity-60"
+              style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))", animationDelay: "1s" }}
+            />
+            <div
+              className="animate-morph relative flex aspect-[4/5] w-[clamp(220px,70vw,520px)] items-center justify-center text-[clamp(6rem,20vw,14rem)] shadow-[0_40px_80px_rgba(201,125,140,0.25),0_4px_16px_rgba(74,46,48,0.08)] sm:w-[clamp(260px,50vw,520px)] lg:w-[clamp(260px,38vw,520px)]"
+              style={{ background: "linear-gradient(135deg, #F2C4CE 0%, #EEC5CC 40%, #E8A0B0 100%)" }}
+            >
+              <span className="relative z-10">🎀</span>
+              <div
+                className="pointer-events-none absolute"
+                style={{ inset: "-20%", background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 60%)" }}
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Stats desktop — absolute di atas section */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-10 whitespace-nowrap lg:left-[8vw] lg:translate-x-0"
+          className="hidden lg:flex absolute bottom-6 left-[8vw] z-10 gap-10 whitespace-nowrap"
         >
           {STATS.map((s) => (
             <div key={s.label} className="flex flex-col gap-0.5">
