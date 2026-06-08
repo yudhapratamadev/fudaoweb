@@ -268,23 +268,25 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      {featuredReviews.length > 0 && (
-        <section className="bg-ivory px-[8vw] py-24 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-rose">Kata Mereka</p>
-          <h2 className="font-serif text-4xl font-light text-bark lg:text-5xl">
-            Pelanggan yang <em className="italic text-rose">Bahagia</em>
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-[1.8] text-muted-rose">
-            Lebih dari 500 pelanggan telah mempercayai Fudao Scrunchie untuk tampil
-            lebih cantik setiap hari.
-          </p>
+      <section className="bg-ivory px-[8vw] py-24 text-center">
+        <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-rose">Kata Mereka</p>
+        <h2 className="font-serif text-4xl font-light text-bark lg:text-5xl">
+          Pelanggan yang <em className="italic text-rose">Bahagia</em>
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-[1.8] text-muted-rose">
+          Lebih dari 500 pelanggan telah mempercayai Fudao Scrunchie untuk tampil
+          lebih cantik setiap hari.
+        </p>
+        {featuredReviews.length === 0 ? (
+          <p className="mt-12 text-sm text-muted-rose italic">Belum ada ulasan.</p>
+        ) : (
           <div className="mx-auto mt-12 grid max-w-6xl gap-5 text-left md:grid-cols-3">
             {featuredReviews.map((r) => (
               <ReviewCard key={r.id} review={r} />
             ))}
           </div>
-        </section>
-      )}
+        )}
+      </section>
 
       {/* CTA */}
       <section className="flex flex-col items-center bg-cream px-[8vw] py-24 text-center">
