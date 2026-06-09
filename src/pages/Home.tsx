@@ -6,6 +6,7 @@ import { fetchCollections, fetchReviews } from "@/lib/queries";
 import { BRAND, WHATSAPP_LINK, WHATSAPP_COLLAB, STATS, WHY, COLLAB } from "@/constants";
 import CollectionCard from "@/components/CollectionCard";
 import ReviewCard from "@/components/ReviewCard";
+import bungaImg from "@/assets/bunga.png";
 
 export default function Home() {
   const { data: collections = [], isLoading: collectionsLoading } = useQuery({
@@ -121,7 +122,7 @@ export default function Home() {
               style={{ background: "linear-gradient(135deg, #F2C4CE 0%, #EEC5CC 40%, #E8A0B0 100%)" }}
             >
               <img
-                src="/bunga.png"
+                src={bungaImg}
                 alt="Fudao Scrunchie"
                 className="relative z-10 h-[92%] w-auto object-contain drop-shadow-[0_12px_28px_rgba(74,46,48,0.18)]"
               />
