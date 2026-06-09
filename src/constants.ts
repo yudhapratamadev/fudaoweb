@@ -4,7 +4,7 @@ export const BRAND = {
   phone: "+62 895-2451-0704",
   whatsappRaw: "6289524510704",
   instagram: "https://instagram.com/fudaoscrunchie",
-  shopee: "https://shopee.co.id",
+  shopee: "https://shopee.co.id/fudao_scrunchie",
   email: "hello@fudaoscrunchie.com",
 };
 

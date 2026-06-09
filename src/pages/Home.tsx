@@ -117,10 +117,14 @@ export default function Home() {
               style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-blush))", animationDelay: "1s" }}
             />
             <div
-              className="animate-morph relative flex aspect-[4/5] w-[clamp(220px,70vw,520px)] items-center justify-center text-[clamp(6rem,20vw,14rem)] shadow-[0_40px_80px_rgba(201,125,140,0.25),0_4px_16px_rgba(74,46,48,0.08)] sm:w-[clamp(260px,50vw,520px)] lg:w-[clamp(260px,38vw,520px)]"
+              className="animate-morph relative flex aspect-[4/5] w-[clamp(220px,70vw,520px)] items-center justify-center overflow-hidden shadow-[0_40px_80px_rgba(201,125,140,0.25),0_4px_16px_rgba(74,46,48,0.08)] sm:w-[clamp(260px,50vw,520px)] lg:w-[clamp(260px,38vw,520px)]"
               style={{ background: "linear-gradient(135deg, #F2C4CE 0%, #EEC5CC 40%, #E8A0B0 100%)" }}
             >
-              <span className="relative z-10">🎀</span>
+              <img
+                src="/bunga.png"
+                alt="Fudao Scrunchie"
+                className="relative z-10 h-[92%] w-auto object-contain drop-shadow-[0_12px_28px_rgba(74,46,48,0.18)]"
+              />
               <div
                 className="pointer-events-none absolute"
                 style={{ inset: "-20%", background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 60%)" }}
