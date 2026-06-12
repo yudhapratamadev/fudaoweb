@@ -15,6 +15,7 @@ export interface Review {
   id: string;
   tenant_id: string;
   customer_name: string;
+  position: string | null;
   rating: number;
   text: string | null;
   avatar_url: string | null;

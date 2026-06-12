@@ -26,7 +26,7 @@ export default function ReviewCard({ review }: { review: Review }) {
         )}
         <div>
           <div className="text-sm font-medium text-bark">{review.customer_name}</div>
-          <div className="text-xs text-muted-rose">Pelanggan</div>
+          <div className="text-xs text-muted-rose">{review.position || "Pelanggan"}</div>
         </div>
       </div>
     </div>
