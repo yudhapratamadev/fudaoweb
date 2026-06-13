@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCollections, fetchReviews } from "@/lib/queries";
 import { BRAND, WHATSAPP_LINK, WHATSAPP_COLLAB, STATS, WHY, COLLAB } from "@/constants";
 import CollectionCard from "@/components/CollectionCard";
-import ReviewCard from "@/components/ReviewCard";
+import ReviewCarousel from "@/components/ReviewCarousel";
 import bungaImg from "@/assets/bunga.png";
 
 export default function Home() {
@@ -19,7 +19,6 @@ export default function Home() {
   });
 
   const featured = collections.slice(0, 6);
-  const featuredReviews = reviews.slice(0, 3);
 
   return (
     <>
@@ -282,14 +281,10 @@ export default function Home() {
           Lebih dari 500 pelanggan telah mempercayai Fudao Scrunchie untuk tampil
           lebih cantik setiap hari.
         </p>
-        {featuredReviews.length === 0 ? (
+        {reviews.length === 0 ? (
           <p className="mt-12 text-sm text-muted-rose italic">Belum ada ulasan.</p>
         ) : (
-          <div className="mx-auto mt-12 grid max-w-6xl gap-5 text-left md:grid-cols-3">
-            {featuredReviews.map((r) => (
-              <ReviewCard key={r.id} review={r} />
-            ))}
-          </div>
+          <ReviewCarousel reviews={reviews} />
         )}
       </section>
 
