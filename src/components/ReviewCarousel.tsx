@@ -15,7 +15,7 @@ export default function ReviewCarousel({ reviews }: { reviews: Review[] }) {
   const items = [...singleSet, ...singleSet];
 
   // Durasi proporsional jumlah kartu agar kecepatan konsisten.
-  const duration = Math.max(24, singleSet.length * 6);
+  const duration = Math.max(18, singleSet.length * 4);
 
   return (
     <div className="group relative mt-12 overflow-hidden">
