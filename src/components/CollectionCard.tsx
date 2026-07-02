@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import type { Collection } from "@/lib/types";
+import { stripHtml } from "@/lib/html";
 
 export default function CollectionCard({ collection }: { collection: Collection }) {
+  const preview = stripHtml(collection.content_html) || collection.description;
   return (
     <Link
       to={`/collections/${collection.slug}`}
@@ -34,9 +36,9 @@ export default function CollectionCard({ collection }: { collection: Collection 
         <h3 className="font-serif text-xl font-semibold text-bark">
           {collection.title}
         </h3>
-        {collection.description && (
+        {preview && (
           <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-rose">
-            {collection.description}
+            {preview}
           </p>
         )}
         {collection.price != null && (

@@ -4,6 +4,8 @@ export interface Collection {
   title: string;
   slug: string;
   description: string | null;
+  content_html: string | null;
+  product_url: string | null;
   image_url: string | null;
   price: number | null;
   category: string | null;

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, ExternalLink, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCollectionBySlug } from "@/lib/queries";
 import { WHATSAPP_LINK } from "@/constants";
@@ -96,17 +96,40 @@ export default function CollectionDetail() {
               Rp {Number(c.price).toLocaleString("id-ID")}
             </div>
           )}
-          {c.description && (
-            <p className="mt-6 text-base leading-[1.8] text-muted-rose">{c.description}</p>
+          {c.content_html ? (
+            <div
+              className="prose prose-sm mt-6 max-w-none text-muted-rose prose-headings:font-serif prose-headings:text-bark prose-a:text-rose prose-strong:text-bark prose-img:rounded-2xl"
+              dangerouslySetInnerHTML={{ __html: c.content_html }}
+            />
+          ) : (
+            c.description && (
+              <p className="mt-6 text-base leading-[1.8] text-muted-rose">{c.description}</p>
+            )
           )}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-rose px-8 py-3.5 text-sm font-medium text-white shadow-[0_8px_24px_rgba(201,125,140,0.35)] transition hover:-translate-y-0.5 hover:bg-warm"
-          >
-            <MessageCircle size={18} /> Pesan via WhatsApp
-          </a>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            {c.product_url && (
+              <a
+                href={c.product_url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit items-center gap-2 rounded-full bg-rose px-8 py-3.5 text-sm font-medium text-white shadow-[0_8px_24px_rgba(201,125,140,0.35)] transition hover:-translate-y-0.5 hover:bg-warm"
+              >
+                <ExternalLink size={18} /> Lihat Produk
+              </a>
+            )}
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className={`inline-flex w-fit items-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium transition hover:-translate-y-0.5 ${
+                c.product_url
+                  ? "border border-rose/40 bg-white text-rose hover:bg-blush/30"
+                  : "bg-rose text-white shadow-[0_8px_24px_rgba(201,125,140,0.35)] hover:bg-warm"
+              }`}
+            >
+              <MessageCircle size={18} /> Pesan via WhatsApp
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>

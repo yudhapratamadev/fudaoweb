@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 import type { Review } from "@/lib/types";
 import ReviewCard from "@/components/ReviewCard";
 
-const CARD_WIDTH = 360; // 340px kartu + 20px gap
-const MIN_TRACK = 1800; // lebar minimum satu set agar layar lebar tetap penuh
+const CARD_WIDTH = 320; // ~300px kartu + 20px gap
+const MIN_TRACK = 1600; // lebar minimum satu set agar layar lebar tetap penuh
 
 export default function ReviewCarousel({ reviews }: { reviews: Review[] }) {
   // Ulangi set agar cukup lebar untuk layar besar, lalu gandakan untuk loop mulus.
@@ -14,8 +14,8 @@ export default function ReviewCarousel({ reviews }: { reviews: Review[] }) {
   const singleSet = Array.from({ length: repeat }, () => reviews).flat();
   const items = [...singleSet, ...singleSet];
 
-  // Durasi proporsional jumlah kartu agar kecepatan konsisten.
-  const duration = Math.max(18, singleSet.length * 4);
+  // Durasi proporsional jumlah kartu agar kecepatan konsisten (dipercepat).
+  const duration = Math.max(10, singleSet.length * 2.2);
 
   return (
     <div className="group relative mt-12 overflow-hidden">
@@ -30,7 +30,7 @@ export default function ReviewCarousel({ reviews }: { reviews: Review[] }) {
         className="flex gap-5"
       >
         {items.map((r, i) => (
-          <div key={`${r.id}-${i}`} className="w-[340px] shrink-0 text-left">
+          <div key={`${r.id}-${i}`} className="w-[78vw] max-w-[300px] shrink-0 text-left sm:w-[320px]">
             <ReviewCard review={r} />
           </div>
         ))}
